@@ -1,3 +1,52 @@
+/*
+    Genera una card con le proprietà img, title, text
+    e lo appende a ImgGen
+*/
+
+function item(img, title, text) {
+    // divItem
+    let divItem = document.createElement('div')
+    divItem.className = 'item'
+    imgGen.appendChild(divItem)
+    // img
+    let imgItem = document.createElement('img')
+    imgItem.src = img
+    divItem.appendChild(imgItem)
+    // title
+    let divTitle = document.createElement('div')
+    divTitle.classList.add('title')
+    divItem.appendChild(divTitle)
+    // h2
+    let h2Title = document.createElement('h2')
+    h2Title.innerHTML += title;
+    divTitle.appendChild(h2Title);
+    // p
+    let p = document.createElement('p')
+    p.innerHTML += text
+    divTitle.appendChild(p)
+
+
+}
+
+/*
+    Genera un element img e lo appende in thumb
+*/
+
+function tumbnails(img) {
+    let divThumb=document.createElement('div')
+    divThumb.classList.add('itemscroll')
+    thumb.append(divThumb)
+
+    // divThumb.classList.add('active')
+
+    let thumbImg = document.createElement('img')
+    thumbImg.src = img
+    divThumb.appendChild(thumbImg)
+    
+}
+
+// Variabili globali
+
 const images = [{
     image: 'img/01.webp',
     title: 'Marvel\'s Spiderman Miles Morale',
@@ -20,8 +69,12 @@ const images = [{
     text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
 }];
 
+
 let imgGen = document.querySelector('.general-img');
 let thumb = document.querySelector('.thumbnails');
+
+// Chiama le funzioni una volta per ogni elemento dell'array degli oggetti
+// sistema un po' i parametri
 for (let i = 0; i < images.length; i++) {
     let singleElements = images[i];
     console.log(singleElements);
@@ -31,36 +84,53 @@ for (let i = 0; i < images.length; i++) {
     let text = `${singleElements.text}`
     item(img, title, text)
     tumbnails(img)
-}
-
-
-function item(img, title, text) {
-    // img
-    let imgItem = document.createElement('img')
-    imgItem.src = img
-    imgItem.className = img
-    // imgItem.className = 'item'
-    imgItem.className = 'item.active'
-    // imgItem.classList.remove('display:none')
-    imgGen.appendChild(imgItem)
-    // title
-    let divTitle = document.createElement('div')
-    imgGen.appendChild(divTitle)
-    // h2
-    let h2Title = document.createElement('h2')
-    h2Title.innerHTML += title;
-    divTitle.appendChild(h2Title);
-    // p
-    let p = document.createElement('p')
-    p.innerHTML += text
-    divTitle.appendChild(p)
-}
-
-function tumbnails(img) {
-    let thumbImg = document.createElement('img')
-    thumbImg.className = 'itemscroll'
-    thumbImg.className = img
-    thumbImg.src = img
-    thumb.appendChild(thumbImg)
 
 }
+
+
+
+
+
+let active = 0; //[]
+thumb.getElementsByClassName('itemscroll')[active].classList.add('active');
+imgGen .getElementsByClassName('item')[active].classList.add('active');
+
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+
+prev.addEventListener('click', function () {
+    // al click cerca clas ke si chiama iten.active e togli active
+
+    if (active == 0) {
+        active = imgGen.length - 1;
+    } else {
+        active--;
+
+    }
+
+
+    document.querySelector('.itemscroll.active').classList.remove('active');
+    thumb.getElementsByClassName('itemscroll')[active].classList.add('active');
+
+    document.querySelector('.item.active').classList.remove('active');
+    imgGen.getElementsByClassName('item')[active].classList.add('active');
+
+})
+
+next.addEventListener('click', function () {
+    // al click cerca clas ke si chiama iten.active e togli active
+
+    // if (active = imgGen.length - 1) {
+    //     active == 0;
+    // } else {
+    //     active++;
+
+    // }
+    // document.querySelector('.itemscroll.active').classList.remove('active');
+    // thumb.getElementsByClassName('itemscroll')[active].classList.add('active');
+
+    // document.querySelector('.item.active').classList.remove('active');
+    // imgGen.getElementsByClassName('item')[active].classList.add('active');
+
+})

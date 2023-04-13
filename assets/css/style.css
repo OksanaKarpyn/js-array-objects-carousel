@@ -13,10 +13,10 @@
 
 .container {
     margin: auto;
-    width: 70%;
+    /* width: 80%; */
     height: 60%;
     display: flex;
-    
+
 }
 
 img {
@@ -32,12 +32,19 @@ img {
     width: 100%;
     display: flex;
 }
-.title{
-    position:absolute;
-    color: chartreuse;
+
+.title {
+    position: absolute;
+    color: rgb(235, 239, 231);
     right: 10px;
     bottom: 10px;
+    font-size: .5rem;
     z-index: 1;
+    text-align: end;
+}
+
+.general-img {
+    max-width: 70%;
 }
 
 .general-img .item.active {
@@ -55,7 +62,7 @@ img {
 
 .thumbnails {
     position: relative;
-    width: 40%;
+    max-width: 30%;
 
 }
 
@@ -64,8 +71,11 @@ img {
     overflow: hidden;
     object-fit: cover;
     height: calc(100% / 5);
+    
 }
-
+.itemscroll.active{
+    border:2px solid red;
+}
 
 .prev,
 .next {
@@ -79,7 +89,7 @@ img {
 
 .prev {
     right: 40%;
-    
+
 }
 
 .next {

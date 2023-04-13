@@ -24,8 +24,6 @@ function item(img, title, text) {
     let p = document.createElement('p')
     p.innerHTML += text
     divTitle.appendChild(p)
-
-
 }
 
 /*
@@ -33,16 +31,14 @@ function item(img, title, text) {
 */
 
 function tumbnails(img) {
-    let divThumb=document.createElement('div')
+    let divThumb = document.createElement('div')
     divThumb.classList.add('itemscroll')
     thumb.append(divThumb)
-
-    // divThumb.classList.add('active')
-
     let thumbImg = document.createElement('img')
     thumbImg.src = img
+
     divThumb.appendChild(thumbImg)
-    
+
 }
 
 // Variabili globali
@@ -87,50 +83,44 @@ for (let i = 0; i < images.length; i++) {
 
 }
 
-
-
-
-
 let active = 0; //[]
+console.log(active)
 thumb.getElementsByClassName('itemscroll')[active].classList.add('active');
-imgGen .getElementsByClassName('item')[active].classList.add('active');
+imgGen.getElementsByClassName('item')[active].classList.add('active');
 
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
 
 prev.addEventListener('click', function () {
-    // al click cerca clas ke si chiama iten.active e togli active
 
+    imgGen.getElementsByClassName('item')[active].classList.remove('active')
+    thumb.getElementsByClassName('itemscroll')[active].classList.remove('active');
+    console.log('prev')
     if (active == 0) {
-        active = imgGen.length - 1;
+        active = images.length - 1;
     } else {
         active--;
 
     }
-
-
-    document.querySelector('.itemscroll.active').classList.remove('active');
+    console.log(active)
     thumb.getElementsByClassName('itemscroll')[active].classList.add('active');
-
-    document.querySelector('.item.active').classList.remove('active');
-    imgGen.getElementsByClassName('item')[active].classList.add('active');
-
+    imgGen.getElementsByClassName('item')[active].classList.add('active')
 })
 
 next.addEventListener('click', function () {
-    // al click cerca clas ke si chiama iten.active e togli active
 
-    // if (active = imgGen.length - 1) {
-    //     active == 0;
-    // } else {
-    //     active++;
+    imgGen.getElementsByClassName('item')[active].classList.remove('active')
+    thumb.getElementsByClassName('itemscroll')[active].classList.remove('active');
+    if (active == images.length - 1) {
+        active = 0;
 
-    // }
-    // document.querySelector('.itemscroll.active').classList.remove('active');
-    // thumb.getElementsByClassName('itemscroll')[active].classList.add('active');
+    } else {
+        active++;
 
-    // document.querySelector('.item.active').classList.remove('active');
-    // imgGen.getElementsByClassName('item')[active].classList.add('active');
+    }
+
+    thumb.getElementsByClassName('itemscroll')[active].classList.add('active');
+    imgGen.getElementsByClassName('item')[active].classList.add('active')
 
 })

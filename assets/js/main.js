@@ -45,7 +45,7 @@ function item(img, title, text) {
     imgGen.appendChild(imgItem)
     // title
     let divTitle = document.createElement('div')
-    imgItem.appendChild(divTitle)
+    imgGen.appendChild(divTitle)
     // h2
     let h2Title = document.createElement('h2')
     h2Title.innerHTML += title;

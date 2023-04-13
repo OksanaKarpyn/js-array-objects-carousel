@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+}
+.container {
+}
+.cards {
+}
+.general-img {
+}
+.thumbnails {
+}
+
+
+.prev,
+.next {
+    position: absolute;
+    background-color: rgba(226, 226, 223, 0.736);
+    border-radius: 50%;
+    z-index: 1;
+
+}
+
+.prev {
+    right: 50%;
+}
+
+.next {
+    right: 50%;
+    bottom: 1px;
+}

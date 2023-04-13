@@ -32,9 +32,15 @@ img {
     width: 100%;
     display: flex;
 }
-
-.general-img .item {
+.title{
+    position:absolute;
+    color: chartreuse;
+    right: 10px;
+    bottom: 10px;
+}
+.item {
     display: none;
+    position: relative;
 }
 .general-img{}
 .general-img .item.active {

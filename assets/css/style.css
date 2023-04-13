@@ -15,8 +15,8 @@
     margin: auto;
     width: 70%;
     height: 60%;
-    /* display: flex; */
-    /* justify-content: flex-end */
+    display: flex;
+    
 }
 
 img {

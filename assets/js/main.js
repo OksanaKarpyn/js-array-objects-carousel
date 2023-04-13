@@ -25,34 +25,42 @@ let thumb = document.querySelector('.thumbnails');
 for (let i = 0; i < images.length; i++) {
     let singleElements = images[i];
     console.log(singleElements);
-    let pathImg = './assets/img/'
+    let pathImg = './assets/'
     let img = `${pathImg}${singleElements.image}`
     let title = `${singleElements.title}`
     let text = `${singleElements.text}`
-    item(img,title,text)
+    item(img, title, text)
+    tumbnails(img)
 }
 
 
-function item(img, title,text) {
+function item(img, title, text) {
     // img
     let imgItem = document.createElement('img')
     imgItem.src = img
-    imgItem.className = 'item'
+    imgItem.className = img
+    // imgItem.className = 'item'
     imgItem.className = 'item.active'
-    imgItem.classList.remove('display:none')
+    // imgItem.classList.remove('display:none')
     imgGen.appendChild(imgItem)
     // title
     let divTitle = document.createElement('div')
     imgItem.appendChild(divTitle)
     // h2
     let h2Title = document.createElement('h2')
-    h2Title.innerHTML+= title;
+    h2Title.innerHTML += title;
     divTitle.appendChild(h2Title);
     // p
     let p = document.createElement('p')
-    p.innerHTML+=text
+    p.innerHTML += text
     divTitle.appendChild(p)
 }
-function tumbnails(){
-    let thumbImg
+
+function tumbnails(img) {
+    let thumbImg = document.createElement('img')
+    thumbImg.className = 'itemscroll'
+    thumbImg.className = img
+    thumbImg.src = img
+    thumb.appendChild(thumbImg)
+
 }
